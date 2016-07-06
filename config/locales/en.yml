@@ -20,4 +20,27 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  views:
+    static_pages:
+      home:
+        title: "Home"
+        greeting: "Welcome to Framgia Books Reviewing System"
+        signup_invite: "Sign-up now"
+      help:
+        title: "Help"
+        content: "Can I help you?"
+      about:
+        title: "About"
+        content: "This is Books App"
+      contact:
+        title: "Contact"
+        content: "Call me!"
+
+    footer:
+      about: "About"
+      contact: "Contact"
+    header:
+      home: "Home"
+      help: "Help"
+      log_in: "Log in"
+      name_title: "Books Reviewing System"
