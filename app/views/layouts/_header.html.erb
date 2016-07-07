@@ -8,7 +8,16 @@
         <% if can? :manage, Category %>
         <li><%= render "layouts/manager" %></li>
         <% end %>
-        <li><%= link_to t("views.header.log_in"), new_user_session_path %></li>
+        <% if current_user.present? %>
+          <li>
+            <%= link_to t("views.button.logout"), destroy_user_session_path,
+              method: :delete %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t("views.button.login"), new_user_session_path  %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>
