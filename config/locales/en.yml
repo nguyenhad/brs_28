@@ -59,6 +59,8 @@ en:
         delete_fail: "Fail to delete user"
         users: "Users"
         action: "Action"
+        search: "Search"
+        search_by_name: "Search by name"
       categories:
         index:
           title: "All categories"
@@ -108,3 +110,8 @@ en:
             delete_category: "Exit books, can't delete"
           alert:
             search_category: "Categories not found"
+      categories:
+        index:
+          title: "All categories"
+      users: "Users"
+      action: "Action"
