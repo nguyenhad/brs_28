@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  validates :name, presence: true, length: {maximum: 20},
+    uniqueness: {case_sensitive: false}
 
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
