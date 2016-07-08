@@ -1,0 +1,35 @@
+<% provide :title, t("views.users.all_users") %>
+<h1><%= t "views.users.all_users" %></h1>
+<ul class="users">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t "users.gravatar" %></th>
+        <th><%= t "users.name" %></th>
+        <th><%= t "users.email" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <% if user.avatar.present? %>
+              <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
+            <% else %>
+              <%= image_tag(Settings.users.default_avatar,
+                size: Settings.users.ava_size) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user.name, user_path(user) %>
+          </td>
+          <td>
+            <%= link_to user.email, user %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</ul>
+<%= paginate @users %>
