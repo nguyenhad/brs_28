@@ -44,3 +44,8 @@ en:
       help: "Help"
       log_in: "Log in"
       name_title: "Books Reviewing System"
+      categories_manager: "Categories"
+    admin:
+      categories:
+        index:
+          title: "All categories"
