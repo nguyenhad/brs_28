@@ -1,0 +1,10 @@
+<% provide :title, t("views.admin.categories.index.title") %>
+<h1><%= t "views.admin.categories.index.title" %></h1>
+<ul class="categories">
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to category.name, admin_categories_path %>
+    </li>
+  <% end %>
+  <%= paginate @categories %>
+</ul>
