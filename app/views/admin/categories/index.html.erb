@@ -1,10 +1,26 @@
 <% provide :title, t("views.admin.categories.index.title") %>
 <h1><%= t "views.admin.categories.index.title" %></h1>
-<ul class="categories">
+<table class="table table-striped">
+  <thead>
+    <th class="id"><%= t "views.admin.categories.index.category_id" %></th>
+    <th class="name"><%= t "views.admin.categories.index.category_name" %></th>
+    <th class="action"><%= t "views.admin.categories.index.category_action" %></th>
+  </thead>
   <% @categories.each do |category| %>
-    <li>
-      <%= link_to category.name, admin_categories_path %>
-    </li>
+  <tbody>
+    <tr>
+      <td class="category-id"><%= category.id %></td>
+      <td><%= link_to category.name, admin_categories_path %></td>
+      <td>
+        <%= link_to t("views.admin.categories.index.edit"),
+          edit_admin_category_path(category), class: "btn btn-info" %>
+      </td>
+    </tr>
   <% end %>
-  <%= paginate @categories %>
-</ul>
+  </tbody>
+</table>
+<%= paginate @categories %>
+<div>
+  <%= link_to t("views.admin.categories.index.add_category"),
+    new_admin_category_path, class: "btn btn-primary" %>
+</div>

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  enum user_role: [ :user, :admin, :register ]
+
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
