@@ -64,10 +64,12 @@ en:
           title: "All categories"
           edit: "Edit"
           add_category: "Add new category"
-          category_id: "Category ID"
+          category_number: "Number"
           category_name: "Name"
           category_action: "Action"
           button_delete: "Delete"
+          search_form: "Category's name: "
+          search_button: "Search"
         new:
           title: "New category"
           content: "Add a new category"
@@ -104,3 +106,5 @@ en:
           danger:
             invalid_category: "Invalid category"
             delete_category: "Exit books, can't delete"
+          alert:
+            search_category: "Categories not found"
