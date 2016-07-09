@@ -14,6 +14,8 @@
       <td>
         <%= link_to t("views.admin.categories.index.edit"),
           edit_admin_category_path(category), class: "btn btn-info" %>
+        <%= link_to t("views.admin.categories.index.button_delete"),
+          admin_category_path(category),method: :delete, class: "btn btn-danger" %>
       </td>
     </tr>
   <% end %>
