@@ -54,6 +54,7 @@ en:
           category_id: "Category ID"
           category_name: "Name"
           category_action: "Action"
+          button_delete: "Delete"
         new:
           title: "New category"
           content: "Add a new category"
@@ -86,5 +87,7 @@ en:
           success:
             create_category: "New category was saved"
             edit_category: "Edit successfully"
+            delete_category: "Delete successfully"
           danger:
             invalid_category: "Invalid category"
+            delete_category: "Exit books, can't delete"
