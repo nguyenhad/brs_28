@@ -107,3 +107,30 @@ footer {
     }
   }
 }
+
+/* Categories manager */
+.manager-categories{
+  thead{
+    tr{
+      .id{
+        width: 10%;
+      }
+      .name{
+        width: 50%;
+      }
+      .total{
+        width: 20%;
+      }
+      .action{
+        width: 20%;
+      }
+    }
+  }
+  tbody{
+    tr{
+      .category-id{
+        padding-left: 30px;
+      }
+    }
+  }
+}

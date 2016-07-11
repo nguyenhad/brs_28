@@ -4,9 +4,11 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("views.header.home"), root_path %></li>
-        <li><%= link_to t("views.header.help"), help_path %></li>
+        <li><%= link_to t("views.header.help"), help_path %></li>\
+        <% if can? :manage, Category %>
         <li><%= render "layouts/manager" %></li>
-        <li><%= link_to t("views.header.log_in"), "#" %></li>
+        <% end %>
+        <li><%= link_to t("views.header.log_in"), new_user_session_path %></li>
       </ul>
     </nav>
   </div>
