@@ -9,6 +9,7 @@ class CreateBooks < ActiveRecord::Migration
       t.float :average_rate
       t.string :isbn
       t.string :description
+      t.string :picture
 
       t.timestamps null: false
     end

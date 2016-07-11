@@ -1,0 +1,8 @@
+<% provide :title, t("views.books.all_books") %>
+<h1><%= t "views.books.all_books" %></h1>
+<table class = "table">
+  <div class="section group">
+    <%= render @books %>
+  </div>
+</table>
+<%= paginate @books %>

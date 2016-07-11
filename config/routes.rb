@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show, :index]
+  resources :books, only: [:show, :index]
   namespace :admin do
     resources :categories
   end
