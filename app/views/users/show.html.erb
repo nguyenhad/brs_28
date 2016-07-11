@@ -1,0 +1,16 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <% if @user.avatar.present? %>
+          <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
+        <% else %>
+          <%= image_tag(Settings.users.default_avatar,
+            size: Settings.users.ava_size) %>
+        <% end %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>

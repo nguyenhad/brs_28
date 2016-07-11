@@ -49,3 +49,8 @@ en:
       categories:
         index:
           title: "All categories"
+    users:
+      all_users: "All users"
+      gravatar: "Gravatar"
+      name: "Name"
+      email: "Email"
