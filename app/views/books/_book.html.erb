@@ -1,0 +1,12 @@
+<div class="row1">
+  <% if book.picture.present? %>
+    <%= link_to image_tag(book.picture, size: Settings.books.book_size),
+      book, class: "img-thumbnail" %>
+  <% else %>
+    <%= link_to image_tag(Settings.books.default_book,
+      size: Settings.books.book_size), book,
+      class: "img-thumbnail" %>
+  <% end %>
+  <h4><%= link_to book.title, book_path(book) %></h4>
+  <p><%= t ("views.books.author")%><%= book.author %></p>
+</div>

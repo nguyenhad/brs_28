@@ -23,6 +23,21 @@ section {
   overflow: auto;
 }
 
+.section group{
+  width: 100%;
+  height: 350px;
+  float: left;
+}
+.row1{
+  width: 25%;
+  float: left;
+  height: 20%;
+}
+
+.title{
+  color: green;
+}
+
 .center {
   text-align: center;
 }

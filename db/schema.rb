@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160707062005) do
     t.float    "average_rate"
     t.string   "isbn"
     t.string   "description"
+    t.string   "picture"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

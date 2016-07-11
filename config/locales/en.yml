@@ -54,3 +54,13 @@ en:
       gravatar: "Gravatar"
       name: "Name"
       email: "Email"
+    books:
+      all_books: "All books"
+      author: "Author: "
+      review: "Reviews"
+      category: "Category"
+      description: "Description: "
+      author: "Author: "
+      date: "Publish date: "
+      pages: "Number of pages: "
+      type: "Type: "

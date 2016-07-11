@@ -1,0 +1,30 @@
+<% provide :title, @book.title %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-5">
+    <% if @book.picture.present? %>
+      <%= image_tag(@book.picture, size: Settings.books.book_size_large,
+        class: "img-thumbnail") %>
+    <% else %>
+      <%= image_tag(Settings.books.default_book,
+        size: Settings.books.book_size_large,
+        class: "img-thumbnail") %>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-7">
+    <div class="detail">
+      <div class="title">
+        <h2><b><%= @book.title %></b></h2>
+      </div>
+      <h4><%= t "views.books.author" %></h4>
+      <p><%= @book.author %></p>
+      <h4><%= t "views.books.date" %></h4>
+      <p><%= @book.publish_date %></p>
+      <h4><%= t "views.books.pages" %></h4>
+      <p><%= @book.pages %></p>
+      <h4><%= t "views.books.type" %></h4>
+      <p><%= @book.category.name %></p>
+      <h4><%= t "views.books.description" %></h4>
+      <p><%= @book.description %></p>
+    </div>
+  </div>
+</div>
