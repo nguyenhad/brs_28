@@ -1,13 +1,13 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
-
   def index
-    users = User.order(updated_at: :desc)
-    @users = Kaminari.paginate_array(users).page(params[:page]).
-      per Settings.per_page
+    @search = User.search(params[:q])
+    @users = @search.result.order(updated_at: :desc).page(params[:page])
+      .per Settings.per_page
   end
 
-  def show
+  def new
+    @user = User.new
   end
 
   def destroy

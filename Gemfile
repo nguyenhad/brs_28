@@ -18,6 +18,7 @@ gem "devise"
 gem "carrierwave"
 gem "config"
 gem "cancancan", "~> 1.10"
+gem "ransack"
 
 group :development, :test do
   gem "byebug"
