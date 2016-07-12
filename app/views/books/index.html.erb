@@ -1,8 +1,25 @@
 <% provide :title, t("views.books.all_books") %>
 <h1><%= t "views.books.all_books" %></h1>
-<table class = "table">
+<div class="col-md-12">
+  <%= search_form_for @search do |f| %>
+    <table class="table">
+      <tr>
+        <td><%= f.label :title %></td>
+        <td><%= f.text_field :title_cont, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :author %></td>
+        <td><%= f.text_field :author_cont, class: "form-control" %></td>
+      </tr>
+    </table>
+    <%= f.submit t("views.admin.user.search"), class: "btn btn-info" %>
+  <% end %>
+</div>
+
+<table class = "table" style="margin-top: 15px">
   <div class="section group">
     <%= render @books %>
   </div>
 </table>
 <%= paginate @books %>
+<%= page_entries_info @books %>
