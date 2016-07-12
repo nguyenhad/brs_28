@@ -2,27 +2,35 @@
 <h1><%= t "views.admin.categories.index.title" %></h1>
 <table class="table table-striped">
   <thead>
-    <th class="id"><%= t "views.admin.categories.index.category_id" %></th>
+    <th class="number"><%= t "views.admin.categories.index.category_number" %></th>
     <th class="name"><%= t "views.admin.categories.index.category_name" %></th>
     <th class="action"><%= t "views.admin.categories.index.category_action" %></th>
   </thead>
-  <% @categories.each do |category| %>
-  <tbody>
-    <tr>
-      <td class="category-id"><%= category.id %></td>
-      <td><%= link_to category.name, admin_categories_path %></td>
-      <td>
-        <%= link_to t("views.admin.categories.index.edit"),
-          edit_admin_category_path(category), class: "btn btn-info" %>
-        <%= link_to t("views.admin.categories.index.button_delete"),
-          admin_category_path(category),method: :delete, class: "btn btn-danger" %>
-      </td>
-    </tr>
+  <%= search_form_for [:admin, @search], url: admin_categories_path,
+    method: :get do |f| %>
+    <div class="field">
+      <%= f.label :name_cont, t("views.admin.categories.index.search_form") %>
+      <%= f.search_field :name_cont %><br>
+      <%= f.submit t "views.admin.categories.index.search_button" %>
+    </div>
   <% end %>
+  <tbody>
+    <% @categories.each_with_index do |category, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= link_to category.name, admin_categories_path %></td>
+        <td>
+          <%= link_to t("views.admin.categories.index.edit"),
+            edit_admin_category_path(category), class: "btn btn-info" %>
+          <%= link_to t("views.admin.categories.index.button_delete"),
+            admin_category_path(category),method: :delete, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-<%= paginate @categories %>
 <div>
   <%= link_to t("views.admin.categories.index.add_category"),
     new_admin_category_path, class: "btn btn-primary" %>
 </div>
+<%= paginate @categories %>
