@@ -52,6 +52,7 @@ en:
       categories_manager: "Categories"
       books_manager: "Books"
       manager: "Manager"
+      categories_review: "Categories"
     admin:
       user:
         index: "index"
@@ -116,6 +117,14 @@ en:
       date: "Publish date: "
       pages: "Number of pages: "
       type: "Type: "
+    categories:
+      index:
+        title: "All Categories"
+        category_number: "Number"
+        category_name: "Name"
+        category_action: "Action"
+        search_form: "Category's name: "
+        search_button: "Search"
   controllers:
     admin:
       categories:
@@ -132,5 +141,9 @@ en:
       categories:
         index:
           title: "All categories"
-      users: "Users"
-      action: "Action"
+          users: "Users"
+          action: "Action"
+    categories:
+      flash:
+        alert:
+          search_categories: "Categories not found"

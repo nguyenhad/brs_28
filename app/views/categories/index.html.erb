@@ -1,0 +1,26 @@
+<% provide :title, t("views.categories.index.title") %>
+<h1><%= t "views.categories.index.title" %></h1>
+<table class="table table-striped">
+  <thead>
+    <th class="number"><%= t "views.categories.index.category_number" %></th>
+    <th class="name"><%= t "views.categories.index.category_name" %></th>
+    <th class="action"><%= t "views.categories.index.category_action" %></th>
+  </thead>
+  <%= search_form_for [:user, @search], url: categories_path,
+    method: :get do |f| %>
+    <div class="field">
+      <%= f.label :name_cont, t("views.categories.index.search_form") %>
+      <%= f.search_field :name_cont %><br>
+      <%= f.submit t "views.categories.index.search_button" %>
+    </div>
+  <% end %>
+  <tbody>
+    <% @categories.each_with_index do |category, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to category.name, categories_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @categories %>

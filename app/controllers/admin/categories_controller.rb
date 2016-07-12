@@ -1,11 +1,10 @@
 class Admin::CategoriesController < ApplicationController
-
   load_and_authorize_resource
 
   before_action :check_exist_books, only: :destroy
 
   def index
-    @search = Category.search(params[:q])
+    @search = Category.search params[:q]
     @categories = @search.result.page(params[:page]).per Settings.per_page
     if @categories.blank?
       flash[:alert] =
