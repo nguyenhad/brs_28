@@ -23,6 +23,7 @@ en:
   views:
     message:
       not_admin: "You have to login as admin"
+      not_found_book: "fail to load book"
     button:
       delete: "Delete"
       login: "Login"
@@ -117,6 +118,7 @@ en:
       date: "Publish date: "
       pages: "Number of pages: "
       type: "Type: "
+      book: "Book"
     categories:
       index:
         title: "All Categories"
