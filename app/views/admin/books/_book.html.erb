@@ -1,0 +1,26 @@
+<% @books.each_with_index do |book, index| %>
+  <tr>
+    <td><%= index+1 %></td>
+    <td>
+      <% if book.picture.present? %>
+        <%= image_tag(book.picture, size: Settings.admin.book_size) %>
+      <% else %>
+        <%= image_tag(Settings.books.default_book,
+          size: Settings.admin.book_size) %>
+      <% end %>
+    </td>
+    <td><%= link_to book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= book.description %></td>
+    <td><%= book.publish_date %></td>
+    <td><%= book.pages %></td>
+    <td><%= book.average_rate %></td>
+    <td>
+      <%= link_to t("views.admin.books.index.detail"),
+        admin_book_path(book), class: "btn btn-primary" %>
+      <%= link_to t("views.admin.books.index.delete"), "#",
+        method: :delete, data: {confirm: t("views.admin.message.confirm")},
+        class: "btn btn-danger" %>
+    </td>
+  </tr>
+<% end %>
