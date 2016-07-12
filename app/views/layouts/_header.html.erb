@@ -6,7 +6,7 @@
         <li><%= link_to t("views.header.home"), root_path %></li>
         <li><%= link_to t("views.header.help"), help_path %></li>
         <% if can? :manage, :all %>
-        <li><%= render "layouts/manager" %></li>
+          <li><%= render "layouts/manager" %></li>
         <% end %>
         <% if current_user.present? %>
           <li>

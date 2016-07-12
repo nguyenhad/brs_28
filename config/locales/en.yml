@@ -50,6 +50,8 @@ en:
       log_in: "Log in"
       name_title: "Books Reviewing System"
       categories_manager: "Categories"
+      books_manager: "Books"
+      manager: "Manager"
     admin:
       user:
         index: "index"
@@ -80,6 +82,23 @@ en:
           title: "Edit categories"
           content: "Update this category"
           submit_button: "Save"
+      books:
+        index:
+          id: "ID"
+          picture: "Picture"
+          title: "Title"
+          description: "Description"
+          author: "Author"
+          publish_date: "Publish date"
+          page: "Pages"
+          rate: "Rate average"
+          detail: "Detail"
+          edit: "Edit"
+          delete: "Delete"
+          create_book: "Create book"
+          all_books: "All books"
+      message:
+        confirm: "You sure?"
     shared:
       error_message: "This error contain: "
     users:

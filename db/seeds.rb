@@ -29,6 +29,7 @@ end
     publish_date: "2015/1/1",
     pages: 200,
     isbn: "codebks" + (n+1).to_s,
+    picture: "/assets/nhagiakim.jpg",
     average_rate: 0,
     category_id: 1
   end
