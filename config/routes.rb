@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :books, only: [:show, :index]
   namespace :admin do
     resources :categories
+    resources :users
   end
 end

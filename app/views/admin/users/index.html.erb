@@ -1,0 +1,43 @@
+<%= provide :title,t("views.admin.user.show_user") %>
+<div class="row">
+  <div>
+    <table class="table table-hover">
+      <thead>
+        <tr class="info">
+          <th><%= t "admin.users.index" %></th>
+          <th><%= t "admin.users.name" %></th>
+          <th><%= t "admin.users.email" %></th>
+          <th><%= t "admin.users.avatar" %></th>
+          <th><%= t "admin.users.action" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <% if user.avatar.present? %>
+              <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
+            <% else %>
+              <%= image_tag(Settings.users.default_avatar,
+                size: Settings.users.ava_size) %>
+            <% end %>
+          </td>
+          <td>
+            <% if can?(:delete, @user) && !user.admin? %>
+              <%= link_to t("views.button.delete"), admin_user_path(user),
+                method: :delete,
+                data:{confirm: t("views.button.delete")},
+                class: "btn btn-danger btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% paginate @users %>
+  </div>
+</div>

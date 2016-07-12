@@ -21,6 +21,12 @@
 
 en:
   views:
+    message:
+      not_admin: "You have to login as admin"
+    button:
+      delete: "Delete"
+      login: "Login"
+      logout: "Logout"
     static_pages:
       home:
         title: "Home"
@@ -35,7 +41,6 @@ en:
       contact:
         title: "Contact"
         content: "Call me!"
-
     footer:
       about: "About"
       contact: "Contact"
@@ -46,6 +51,14 @@ en:
       name_title: "Books Reviewing System"
       categories_manager: "Categories"
     admin:
+      user:
+        index: "index"
+        show_user: "Show User"
+        confirm: "Are you sure to delete this user?"
+        delete_success: "User has been deleted"
+        delete_fail: "Fail to delete user"
+        users: "Users"
+        action: "Action"
       categories:
         index:
           title: "All categories"
