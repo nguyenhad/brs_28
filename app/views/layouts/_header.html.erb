@@ -5,7 +5,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("views.header.home"), root_path %></li>
         <li><%= link_to t("views.header.help"), help_path %></li>
-        <% if can? :manage, :all %>
+        <li><%= render "layouts/user" %></li>
+        <% if can? :manage, Category %>
           <li><%= render "layouts/manager" %></li>
         <% end %>
         <% if current_user.present? %>
