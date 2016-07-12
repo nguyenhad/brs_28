@@ -1,0 +1,15 @@
+<% @book_requests.each_with_index do |request, index| %>
+  <tr>
+    <th scope="row"><%= index + 1 %></th>
+    <td><%= request.title %></td>
+    <td><%= request.author %></td>
+    <td><%= request.created_at %></td>
+    <td>
+      <%= link_to t("views.requests.detail"), book_request_path(request),
+        class: "btn btn-primary" %>
+      <%= link_to t("views.request.delete"), book_request_path(request),
+        method: :delete, data: {confirm: t("views.requests.confirm")},
+        class: "btn btn-danger" %>
+    </td>
+  </tr>
+<% end %>

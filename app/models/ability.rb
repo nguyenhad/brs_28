@@ -10,6 +10,7 @@ class Ability
     elsif user.user?
       can :read, :all
       can :manage, Review, user_id: user.id
+      can :manage, BookRequest
     else
       can :read, :all
     end

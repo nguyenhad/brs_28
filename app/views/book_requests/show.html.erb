@@ -1,0 +1,13 @@
+<% provide :title, t("views.requests.request") %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <h3><%= t "views.requests.title" %></h3>
+    <p><%= @book_request.title %></p>
+    <h3><%= t "views.requests.author" %></h3>
+    <p><%= @book_request.author %></p>
+    <%= link_to t("views.requests.back"), book_requests_path,
+      class: "btn btn-primary" %>
+    <%= link_to t("views.requests.edit"), edit_book_request_path,
+      class: "btn btn-success" %>
+  </div>
+</div>
