@@ -1,0 +1,22 @@
+<% provide :title, t("views.requests.requests") %>
+<div class="container-fluid">
+  <%= link_to t("views.requests.create_request"), new_book_request_path,
+    class: "btn btn-primary" %>
+  <table class="table table-hover">
+    <thead>
+      <tr class="info">
+        <tr>
+          <th><%= t "views.requests.index" %></th>
+          <th><%= t "views.requests.title" %></th>
+          <th><%= t "views.requests.author" %></th>
+          <th><%= t "views.requests.created at" %></th>
+          <th></th>
+        </tr>
+      </tr>
+    </thead>
+    <tbody id="requests-body">
+      <%= render "book_request" %>
+    </tbody>
+  </table>
+<%= paginate @book_requests %>
+</div>

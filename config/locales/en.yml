@@ -57,6 +57,9 @@ en:
       books_manager: "Books"
       manager: "Manager"
       categories_review: "Categories"
+      books:
+        list_books: "List books"
+        request: "Request buy books"
     admin:
       user:
         index: "index"
@@ -135,6 +138,29 @@ en:
       delete: "Delete"
       rate: "rate "
       upadate_rate_fail: "update rate fail, can't add review"
+    requests:
+      new: "New request"
+      requests: "Requests"
+      request: "Request"
+      index: "Index"
+      title: "Title"
+      author: "Author"
+      created: "Created at"
+      request_created: "Your request created!"
+      create_request: "Add new request"
+      deleted: "Request deleted!"
+      fail: "Delete request failed!"
+      invalid: "Request not found!"
+      title: "Title"
+      author: "Author"
+      back: "Back"
+      edit: "Edit"
+      edit_success: "Edit success!"
+      submit: "Submit"
+      detail: "Deatail"
+      delete: "Delete"
+      confirm: "You sure?"
+      send: "Send request"
     categories:
       index:
         title: "All Categories"
