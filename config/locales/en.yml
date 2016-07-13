@@ -108,6 +108,12 @@ en:
       gravatar: "Gravatar"
       name: "Name"
       email: "Email"
+      follow: "Follow"
+      unfollow: "Unfollow"
+      view_profile: "View my profile"
+      followers: "Followers"
+      following: "Following"
+      invalid_user: "User not found"
     books:
       all_books: "All books"
       author: "Author: "

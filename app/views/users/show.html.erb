@@ -2,15 +2,20 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <% if @user.avatar.present? %>
-          <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
-        <% else %>
-          <%= image_tag(Settings.users.default_avatar,
-            size: Settings.users.ava_size) %>
-        <% end %>
-        <%= @user.name %>
-      </h1>
+      <% if @user.avatar.present? %>
+        <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
+      <% else %>
+        <%= image_tag(Settings.users.default_avatar,
+          size: Settings.users.ava_size) %>
+      <% end %>
+      <h3><%= @user.name %></h3>
+      <h3><%= @user.email %></h3>
     </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <% unless current_user == @user %>
+      <%= render "follow_form" %>
+    <% end %>
   </aside>
 </div>
