@@ -1,0 +1,17 @@
+<div>
+  <%= form_for review do |f| %>
+    <%= render "shared/error_message" , object: f.object %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+
+    <%= f.label :rate %>
+    <%= f.number_field :rate, max: 5, min: 0, required: "true",
+      class: "form-control" %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content, required: "true", class: "form-control" %>
+    <br>
+    <%= f.submit t("views.review.add_review"),
+      class: "btn btn-primary form-control" %>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<div class="row" id="review_container">
+ <h2><%= t "views.review.review_list" %></h2>
+  <% reviews.each do |review| %>
+    <div class="col-md-6 review">
+      <div class="col-md-3">
+        <% if review.user.avatar.present? %>
+          <%= image_tag(review.user.avatar, size: Settings.users.ava_size) %>
+        <% else %>
+          <%= image_tag(Settings.users.default_avatar,
+            size: Settings.users.ava_size) %>
+        <% end %>
+      </div>
+      <div class="col-md-9">
+        <h4>
+          <strong><%= link_to review.user.name, user_path(review.user) %>
+          </strong><%= t "views.review.rate" %><%= review.rate %>
+        </h4>
+        <p><%= review.content %><p>
+        <div class="comments"></div>
+        <% if current_user.present? %>
+          <%= link_to t("views.review.comment"), "#" %>
+          <% if current_user == review.user %>
+            <%= link_to t("views.review.edit"), "#" %>
+            <%= link_to t("views.button.delete"), review_path(review),
+              method: :delete, data:{confirm: t("views.button.delete")} %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate @reviews %>
+<%= page_entries_info @reviews %>

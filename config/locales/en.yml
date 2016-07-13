@@ -24,6 +24,9 @@ en:
     message:
       not_admin: "You have to login as admin"
       not_found_book: "fail to load book"
+      not_found_review: "fail to load review"
+      delete_success: "Delete successfully"
+      delete_fail: "Delete fail"
     button:
       delete: "Delete"
       login: "Login"
@@ -108,12 +111,6 @@ en:
       gravatar: "Gravatar"
       name: "Name"
       email: "Email"
-      follow: "Follow"
-      unfollow: "Unfollow"
-      view_profile: "View my profile"
-      followers: "Followers"
-      following: "Following"
-      invalid_user: "User not found"
     books:
       all_books: "All books"
       author: "Author: "
@@ -125,6 +122,19 @@ en:
       pages: "Number of pages: "
       type: "Type: "
       book: "Book"
+      isbn: "isbn index:"
+    review:
+      review_list: "Review List"
+      added: "Your review have been added"
+      add_fail: "Fail to add your review"
+      add_review: "Create Review"
+      average_rate: "Average rate:"
+      comment: "Comment"
+      edit: "Edit"
+      create: "Create new Review"
+      delete: "Delete"
+      rate: "rate "
+      upadate_rate_fail: "update rate fail, can't add review"
     categories:
       index:
         title: "All Categories"
@@ -133,6 +143,7 @@ en:
         category_action: "Action"
         search_form: "Category's name: "
         search_button: "Search"
+
   controllers:
     admin:
       categories:
