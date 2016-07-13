@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :books, only: [:show, :index]
   resources :categories, only: [:show, :index]
   resources :relationships, only: [:create, :destroy]
+  resources :reviews
   namespace :admin do
     resources :categories
     resources :users

@@ -1,6 +1,6 @@
 <% provide :title, @book.title %>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-5">
+<div class="row" id="show_book">
+  <div class="col-md-3">
     <% if @book.picture.present? %>
       <%= image_tag(@book.picture, size: Settings.books.book_size_large,
         class: "img-thumbnail") %>
@@ -10,7 +10,7 @@
         class: "img-thumbnail") %>
     <% end %>
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-7">
+  <div class="col-md-4">
     <div class="detail">
       <div class="title">
         <h2><b><%= @book.title %></b></h2>
@@ -25,6 +25,17 @@
       <p><%= @book.category.name %></p>
       <h4><%= t "views.books.description" %></h4>
       <p><%= @book.description %></p>
+      <h4><%= t "views.books.isbn" %></h4>
+      <p><%= @book.isbn %></p>
+      <h4><%= t "views.review.average_rate" %></h4>
+      <p><%= @book.average_rate %></p>
     </div>
   </div>
+  <div class="col-md-5">
+    <% if current_user.present? %>
+      <h2><%= t "views.review.create" %></h2>
+      <%= render "reviews/review_form", review: @new_review %>
+    <% end %>
+  </div>
 </div>
+<%= render "reviews", reviews: @reviews %>
