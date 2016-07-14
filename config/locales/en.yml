@@ -201,6 +201,13 @@ en:
       delete: "Delete"
       confirm: "You sure?"
       send: "Send request"
+    mark_book:
+      mark_favorite: "Mark as favorite"
+      unmark_favorite: "Unmark as favorite"
+      mark_reading: "Mark as reading"
+      mark_read: "Mark as read"
+      mark_unread: "Mark as unread"
+      mark_this_book: "Mark this book as"
     categories:
       index:
         title: "All Categories"

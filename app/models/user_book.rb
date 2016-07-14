@@ -9,4 +9,5 @@ class UserBook < ActiveRecord::Base
   scope :reading, -> user{
     where user_id: user.id, status: 0
   }
+  enum status: [:unread, :reading, :read]
 end

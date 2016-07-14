@@ -1,5 +1,6 @@
 <% provide :title, @book.title %>
 <div class="row" id="show_book">
+  <p id="info"></p>
   <div class="col-md-3">
     <% if @book.picture.present? %>
       <%= image_tag(@book.picture, size: Settings.books.book_size_large,
@@ -31,11 +32,21 @@
       <p><%= @book.average_rate %></p>
     </div>
   </div>
-  <div class="col-md-5">
-    <% if current_user.present? %>
-      <h2><%= t "views.review.create" %></h2>
-      <%= render "reviews/review_form", review: @new_review %>
-    <% end %>
+  <div class="col-md-5" id="mark_index">
+    <h2><%= t "views.mark_book.mark_this_book" %></h2>
+    <br>
+    <div id="favorite">
+      <% if current_user.present? %>
+        <%= render "user_books/user_book_form", user_book: @user_book %>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <% if current_user.present? %>
+        <h2><%= t "views.review.create" %></h2>
+        <%= render "reviews/review_form", review: @new_review %>
+      <% end %>
+    </div>
   </div>
 </div>
 <%= render "reviews", reviews: @reviews %>
