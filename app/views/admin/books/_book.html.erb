@@ -17,10 +17,11 @@
     <td><%= book.average_rate %></td>
     <td>
       <%= link_to t("views.admin.books.index.detail"),
-        admin_book_path(book), class: "btn btn-primary" %>
-      <%= link_to t("views.admin.books.index.delete"), "#",
-        method: :delete, data: {confirm: t("views.admin.message.confirm")},
-        class: "btn btn-danger" %>
+        admin_book_path(book), class: "btn btn-info btn-sm" %>
+      <%= link_to admin_book_path(book),
+        method: :delete, data: {confirm: t("views.admin.message.confirm")} do %>
+        <span class= "glyphicon glyphicon-trash" ></span>
+      <% end %>
     </td>
   </tr>
 <% end %>

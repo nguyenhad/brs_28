@@ -198,8 +198,11 @@ en:
         flash:
           success:
             create_book: "Create book successfully"
+            delete_book: "Delete book successfully"
           danger:
             invalid_category: "Invalid"
+            delete_book: "Exist reviews, cant't delete"
+            delete_books: "Cant't delete"
     categories:
       flash:
         alert:
