@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712080559) do
+ActiveRecord::Schema.define(version: 20160714014259) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"

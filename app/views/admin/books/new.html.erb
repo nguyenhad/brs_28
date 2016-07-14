@@ -1,0 +1,36 @@
+<% provide :title, t("views.admin.books.new.title") %>
+<h1><%= t "views.admin.books.new.title" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @book] do |f| %>
+      <%= render "shared/error_message" , object: @book %>
+      <%= f.hidden_field :category_id %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+      <%= f.label :author %>
+      <%= f.text_field :author, class: "form-control" %>
+      <%= f.label :publish_date %> <br>
+      <%= f.date_select :publish_date, order: [:month, :day, :year] %>
+      <div>
+        <%= f.label :pages %>
+        <%= f.text_field :pages, class: "form-control" %>
+      </div>
+      <%= f.label :isbn %>
+      <%= f.text_field :isbn, class: "form-control" %>
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
+      <span class="picture">
+        <%= f.label :picture %>
+        <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+      </span>
+      <% if @book.picture.present? %>
+        <%= image_tag(@book.picture, size: Settings.books.book_size) %>
+      <% end %>
+      <div class="actions">
+        <%= f.submit t "views.admin.books.new.submit_button",
+          class: "btn btn-primary form-control" %>
+      </div>
+    <% end %>
+  </div>
+</div>
