@@ -7,8 +7,10 @@ class Ability
       can :manage, :all
       can :manage, Category
       can :manage, Review
+      can :manage, Book
     elsif user.user?
       can :read, :all
+      can [:edit, :update], User, id: user.id
       can :manage, Review, user_id: user.id
       can :manage, BookRequest
     else
