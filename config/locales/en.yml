@@ -55,6 +55,7 @@ en:
       name_title: "Books Reviewing System"
       categories_manager: "Categories"
       books_manager: "Books"
+      book_requests_manager: "List buy requests"
       manager: "Manager"
       categories_review: "Categories"
       sign_in_facebook: "Sign in with facebook"
@@ -112,11 +113,28 @@ en:
             author: "Author contain..."
           edit_success: "Edit success!"
           edit: "Edit"
+          created: "Created at"
+          accept: "Accept"
+          list_request: "List request"
         new:
           title: "Add new book"
           submit_button: "Add new Book"
+          created: "Created at"
+          accept: "Accept"
       message:
         confirm: "You sure?"
+      requests:
+        success: "Accepted successfully!"
+        fail: "Accepted failed!"
+        info: "This request was accepted"
+        status: "Status"
+        action: "Action"
+        accept: "Accept"
+        accpeted: "Accepted"
+        pending: "Pending"
+        delete: "Delete"
+        delete_success: "Deleted successfully"
+        delete_fail: "Deleted failed"
     shared:
       error_message: "This error contain: "
     users:

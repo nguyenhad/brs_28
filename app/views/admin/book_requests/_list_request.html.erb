@@ -1,0 +1,24 @@
+<% @book_requests.each_with_index do |book_request, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= book_request.title %></td>
+    <td><%= book_request.author %></td>
+    <td><%= book_request.created_at %></td>
+    <td>
+      <% if book_request.not_accept? %>
+        <%= t "views.admin.requests.pending" %>
+      <% else %>
+        <%= t "views.admin.requests.accepted" %>
+      <% end %>
+    </td>
+    <td>
+      <% if book_request.not_accept? %>
+        <%= link_to t("views.admin.requests.accept"),
+          admin_book_request_path(book_request),
+          method: :put, class: "btn btn-primary" %>
+      <% else %>
+        <%= t "views.admin.requests.info" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

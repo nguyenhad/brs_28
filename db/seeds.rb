@@ -35,7 +35,10 @@ end
   end
 
 Category.create! name: "Novel"
+
 5.times do |n|
   BookRequest.create! title: "Hoang tu be",
-    author: "Antoine de Saint-Exupery", user_id: 2
+    author: "Antoine de Saint-Exupery",
+    user_id: 2,
+    status: 0
   end
