@@ -23,7 +23,10 @@
           <%= link_to t("views.admin.categories.index.edit"),
             edit_admin_category_path(category), class: "btn btn-info" %>
           <%= link_to t("views.admin.categories.index.button_delete"),
-            admin_category_path(category),method: :delete, class: "btn btn-danger" %>
+            admin_category_path(category),method: :delete,
+            class: "btn btn-danger" %>
+          <%= link_to t("views.admin.categories.index.add_book"),
+            new_admin_book_path(category), class: "btn btn-warning" %>
         </td>
       </tr>
     <% end %>

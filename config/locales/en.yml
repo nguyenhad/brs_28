@@ -82,6 +82,7 @@ en:
           button_delete: "Delete"
           search_form: "Category's name: "
           search_button: "Search"
+          add_book: "Add new book"
         new:
           title: "New category"
           content: "Add a new category"
@@ -105,6 +106,9 @@ en:
           delete: "Delete"
           create_book: "Create book"
           all_books: "All books"
+        new:
+          title: "Add new book"
+          submit_button: "Add new Book"
       message:
         confirm: "You sure?"
     shared:
@@ -183,11 +187,16 @@ en:
             delete_category: "Exit books, can't delete"
           alert:
             search_category: "Categories not found"
-      categories:
         index:
           title: "All categories"
           users: "Users"
           action: "Action"
+      books:
+        flash:
+          success:
+            create_book: "Create book successfully"
+          danger:
+            invalid_category: "Invalid"
     categories:
       flash:
         alert:
