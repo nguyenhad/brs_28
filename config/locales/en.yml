@@ -109,6 +109,8 @@ en:
           placeholder:
             title: "Title contain..."
             author: "Author contain..."
+          edit_success: "Edit success!"
+          edit: "Edit"
         new:
           title: "Add new book"
           submit_button: "Add new Book"
@@ -188,6 +190,7 @@ en:
           danger:
             invalid_category: "Invalid category"
             delete_category: "Exit books, can't delete"
+            edit_fail: "Edit book was fail!"
           alert:
             search_category: "Categories not found"
         index:
@@ -200,9 +203,10 @@ en:
             create_book: "Create book successfully"
             delete_book: "Delete book successfully"
           danger:
-            invalid_category: "Invalid"
             delete_book: "Exist reviews, cant't delete"
             delete_books: "Cant't delete"
+            invalid_category: "Invalid category"
+            invalid_book: "Invalid book"
     categories:
       flash:
         alert:
