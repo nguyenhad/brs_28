@@ -1,0 +1,25 @@
+<div class="favorite_books">
+  <div class="title">
+   <h3><%= t "views.users.favorite" %></3>
+  </div>
+  <% if @favorite_books.blank? %>
+    <p><%= t "views.users.no_favorite" %></p>
+  <% else %>
+    <div id="list_book">
+      <% @favorite_books.each do |favorite_book| %>
+        <li class="list-group-item list-group-item-info">
+          <% if favorite_book.picture.present? %>
+            <%= image_tag(favorite_book.picture,
+              size: Settings.books.book_size) %>
+          <% else %>
+            <%= image_tag(Settings.books.default_book,
+              size: Settings.books.book_size) %>
+          <% end %>
+          <%= link_to favorite_book.title, favorite_book %>
+          <br>
+        </li>
+      <% end %>
+    </div>
+  <% end %>
+  <%= paginate @favorite_books %>
+</div>

@@ -28,10 +28,10 @@ class RelationshipsController < ApplicationController
       respond_to do |format|
         format.html {redirect_to @user}
         format.js
+      end
     else
       flash.now[:danger] = t "views.users.invalid_user"
       redirect_to users_path
-      end
     end
   end
 end
