@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get "about"   => "static_pages#about"
   get "contact" => "static_pages#contact"
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :users do
     member do
-      get "/:path", :to => "relationships#index", as: "follow"
+      get "/:path", to: "relationships#index", as: "follow"
     end
   end
   resources :users, only: [:show, :index]

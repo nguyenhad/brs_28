@@ -31,6 +31,10 @@
           <li>
             <%= link_to t("views.button.login"), new_user_session_path  %>
           </li>
+          <li>
+            <%= link_to t("views.header.sign_in_facebook"),
+              user_facebook_omniauth_authorize_path %>
+          </li>
         <% end %>
       </ul>
     </nav>
