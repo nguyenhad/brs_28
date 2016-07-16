@@ -1,0 +1,18 @@
+<% provide :title, t("views.admin.books.index.list_request") %>
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "views.admin.books.index.id" %></th>
+      <th><%= t "views.admin.books.index.title" %></th>
+      <th><%= t "views.admin.books.index.author" %></th>
+      <th><%= t "views.admin.books.index.created" %></th>
+      <th><%= t "views.admin.requests.status" %></th>
+      <th><%= t "views.admin.requests.action" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render "list_request" %>
+  </tbody>
+</table>
+<%= paginate @book_requests %>

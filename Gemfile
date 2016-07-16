@@ -20,6 +20,7 @@ gem "devise"
 gem "carrierwave"
 gem "config"
 gem "cancancan", "~> 1.10"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug"
