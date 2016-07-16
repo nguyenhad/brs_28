@@ -1,0 +1,14 @@
+<% provide :title, current_user.name %>
+<section class="user_info">
+  <% if current_user.avatar.present? %>
+    <%= image_tag current_user.avatar, size: Settings.users.ava_size %>
+  <% else %>
+    <%= image_tag Settings.users.default_avatar,
+      size: Settings.users.ava_size %>
+  <% end %>
+  <h3><%= current_user.name %></h3>
+  <h3><%= current_user.email %></h3>
+</section>
+<section class="stats">
+  <%= render "shared/stats" %>
+</section>
