@@ -57,6 +57,7 @@ en:
       books_manager: "Books"
       manager: "Manager"
       categories_review: "Categories"
+      sign_in_facebook: "Sign in with facebook"
       books:
         list_books: "List books"
         request: "Request buy books"

@@ -9,6 +9,8 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
 gem "kaminari"
 gem "ransack"
+gem "figaro"
+gem "omniauth-facebook"
 
 gem "jquery-rails"
 gem "turbolinks"
