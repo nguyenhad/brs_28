@@ -139,7 +139,7 @@ en:
       error_message: "This error contain: "
     users:
       all_users: "All users"
-      gravatar: "Gravatar"
+      avatar: "Avatar"
       name: "Name"
       email: "Email"
       followers: "Followers"
@@ -152,6 +152,8 @@ en:
       no_reading: "No reading history books!"
       start_read: "Start read at "
       profile: "My profile"
+      index:
+        placeholder_name: "Name contain..."
     books:
       all_books: "All books"
       author: "Author: "

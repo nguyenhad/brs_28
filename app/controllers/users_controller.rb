@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :load_user, only: :show
   def index
-    @users = Kaminari.paginate_array(User.order(name: :asc)).
-      page(params[:page]).per Settings.per_page
+    @search = User.search(params[:q])
+    @users = @search.result.order(updated_at: :desc).page(params[:page])
+      .per Settings.per_page
   end
 
   def show
