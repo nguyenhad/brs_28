@@ -5,8 +5,8 @@
     <%= search_form_for [:admin, @search] do |f| %>
       <table class="table">
         <tr>
-          <td><%= f.label :name %></td>
-          <td><%= f.text_field :name_cont, class: "form-control" %></td>
+          <td><%= f.text_field :name_cont, class: "form-control",
+            placeholder: t("views.users.index.placeholder_name") %></td>
           <td>
             <%= f.submit t("views.admin.user.search"),
               class: "btn btn-info" %>
@@ -14,8 +14,6 @@
         </tr>
       </table>
     <% end %>
-  </div>
-  <div>
     <table class="table table-hover">
       <thead>
         <tr class="info">
