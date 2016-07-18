@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :book_requests
   resources :user_books
   resources :activities, only: [:create, :index]
+  resources :comments
 
   namespace :admin do
     resources :categories

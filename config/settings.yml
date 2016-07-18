@@ -1,6 +1,8 @@
 per_page: "10"
+review_per_page: "2"
 users:
   ava_size: "100x100"
+  comment_ava: "50x50"
   default_avatar: "default.png"
 admin:
   book_size: "100x100"
