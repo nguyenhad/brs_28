@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :load_book, except: :index
+  load_and_authorize_resource
   def index
     @search = Book.ransack params[:q]
     @books = @search.result.order(updated_at: :desc).page(params[:page])
@@ -9,6 +9,8 @@ class BooksController < ApplicationController
   def show
     if current_user.present?
       @new_review = current_user.reviews.build
+      @user_book = UserBook.find_by user_id: current_user.id, book_id: @book.id
+      @user_book = UserBook.new if @user_book == nil
     end
       @reviews = @book.reviews.order(updated_at: :desc)
         .page(params[:page]).per Settings.per_page

@@ -31,6 +31,13 @@ class ReviewsController < ApplicationController
     if @review.destroy
       flash.now[:success] = t "vews.message.delete_success"
       redirect_to book_path(book)
+      if book.present?
+        average = Review.average_rate(book.id).average :rate
+        book.update_attributes average_rate: average
+      else
+        flash[:danger] = t "views.review.upadate_rate_fail"
+        redirect_to books_path
+      end
     else
       flash.now[:danger] = t "vews.message.delete_fail"
       redirect_to book_path(book)

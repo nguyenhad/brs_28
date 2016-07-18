@@ -1,0 +1,15 @@
+<div class="col-md-6">
+  <%= form_for user_book, html: {id: "favorite_form"} do |f| %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <% if user_book.is_favorite == false || user_book.is_favorite == nil %>
+      <%= f.hidden_field :is_favorite, id: "is_favorite", value: true %>
+      <%= f.submit t("views.mark_book.mark_favorite"),
+        class:"btn btn-warning ", id: "button_favorite" %>
+    <% else %>
+      <%= f.hidden_field :is_favorite, id: "is_favorite", value: false %>
+      <%= f.submit t("views.mark_book.unmark_favorite"),
+        class:"btn btn-default ", id: "button_favorite" %>
+    <% end %>
+  <% end %>
+</div>

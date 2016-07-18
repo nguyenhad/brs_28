@@ -1,0 +1,19 @@
+ <div class="col-md-6">
+  <%= form_for user_book, html: {id: "status_form"} do |f| %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <% if user_book.unread? || user_book.status == nil %>
+      <%= f.hidden_field :status, id: "status", value: "reading" %>
+      <%= f.submit t("views.mark_book.mark_reading"),
+        class:"btn btn-primary", id: "button_status" %>
+    <% elsif user_book.reading? %>
+      <%= f.hidden_field :status, id: "status", value: "read" %>
+      <%= f.submit t("views.mark_book.mark_read"),
+        class:"btn btn-success", id: "button_status" %>
+    <% else %>
+      <%= f.hidden_field :status, id: "status", value: "unread" %>
+      <%= f.submit t("views.mark_book.mark_unread"),
+        class:"btn btn-default", id: "button_status" %>
+    <% end %>
+  <% end %>
+</div>
