@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :user_books
   resources :activities, only: [:create, :index]
   resources :comments
+  resources :likes, only: [:create, :destroy]
 
   namespace :admin do
     resources :categories

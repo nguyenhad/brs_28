@@ -15,6 +15,7 @@ class Ability
       can :manage, Review, user_id: user.id
       can :manage, BookRequest
       can :manage, Comment
+      can [:create, :destroy], Like
     else
       can :read, :all
     end

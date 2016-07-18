@@ -10,4 +10,12 @@ class Book < ActiveRecord::Base
   has_many :user_books
   belongs_to :category
 
+  scope :favorite_list, -> user{
+    joins(:user_books).where user_books: {user_id: user.id, is_favorite: true}
+  }
+
+  scope :read_list, -> user{
+    joins(:user_books).where user_books: {user_id: user.id, status: 2}
+  }
+
 end
