@@ -162,6 +162,10 @@ en:
       profile: "My profile"
       index:
         placeholder_name: "Name contain..."
+      activities:
+        title: "List activities"
+        no_activity: "No activities"
+        time_ago: "ago."
     books:
       all_books: "All books"
       author: "Author: "
