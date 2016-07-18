@@ -22,6 +22,7 @@ gem "carrierwave"
 gem "config"
 gem "cancancan", "~> 1.10"
 gem "whenever", require: false
+gem "social-share-button"
 
 group :development, :test do
   gem "byebug"

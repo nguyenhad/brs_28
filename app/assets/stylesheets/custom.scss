@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "social-share-button";
 
 $gray-medium-light: #eaeaea;
 
@@ -181,3 +182,12 @@ footer {
   margin-top: 10px;
 }
 
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
