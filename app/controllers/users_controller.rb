@@ -7,11 +7,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user if @user.nil?
+    @user ||= current_user
     @favorite_books = Book.where(id: UserBook.favorite(@user).pluck(:book_id))
       .page(params[:page]).per Settings.per_page
-    @reading_books = Book.where(id: UserBook.reading(@user).pluck(:book_id))
-      .page(params[:page]).per Settings.per_page
+    book_ids = @user.user_books.where(status: 2)
+    @reading_books = Book.where(id: book_ids).page(params[:page]).per Settings.per_page
+    @activities = PublicActivity::Activity.order(created_at: :desc)
+      .where owner: @user
   end
 
   private
