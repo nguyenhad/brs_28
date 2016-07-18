@@ -2,7 +2,7 @@
   <div class="title">
    <h3><%= t "views.users.reading" %></h3>
   </div>
-  <% if @favorite_books.blank? %>
+  <% if @reading_books.blank? %>
     <p><%= t "views.users.no_reading" %></p>
   <% else %>
     <div id="list_reading_book">

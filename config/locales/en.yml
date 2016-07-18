@@ -63,6 +63,7 @@ en:
       manager: "Manager"
       categories_review: "Categories"
       sign_in_facebook: "Sign in with facebook"
+      user: "All users"
       books:
         list_books: "List books"
         request: "Request buy books"

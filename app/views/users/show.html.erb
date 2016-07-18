@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <% if @user.avatar.present? %>
-        <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
+        <%= image_tag(@user.avatar, size: Settings.users.ava_size) %>
       <% else %>
         <%= image_tag(Settings.users.default_avatar,
           size: Settings.users.ava_size) %>
