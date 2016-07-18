@@ -9,6 +9,7 @@ class Admin::BookRequestsController < ApplicationController
   def update
     if @book_request.update_attributes status: Settings.status
       flash[:info] = t "views.admin.requests.success"
+      Admin::RequestMailer.accept_request(@book_request).deliver_now
     else
       flash[:danger] = t "views.admin.requests.failed"
     end

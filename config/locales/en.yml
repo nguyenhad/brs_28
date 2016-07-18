@@ -29,8 +29,12 @@ en:
       delete_fail: "Delete fail"
     button:
       delete: "Delete"
-      login: "Login"
+      login: "Sign in"
       logout: "Logout"
+    devise:
+      login: "Login"
+      signup: "Sign up"
+      character: " characters minimum"
     static_pages:
       home:
         title: "Home"
@@ -123,6 +127,10 @@ en:
           accept: "Accept"
       message:
         confirm: "You sure?"
+      mailer:
+        accepted: "Request accepted"
+        hello: "Hello"
+        noti: "Your request buy book was accepted"
       requests:
         success: "Accepted successfully!"
         fail: "Accepted failed!"

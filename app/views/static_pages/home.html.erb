@@ -1,6 +1,21 @@
 <% provide :title, t("views.static_pages.home.title") %>
 <div class="center jumbotron">
-  <h2><%= t "views.static_pages.home.greeting" %></h2>
-  <%= link_to t("views.static_pages.home.signup_invite"), "#",
-    class: "btn btn-lg btn-primary" %>
+  <div class="home">
+    <% if user_signed_in? %>
+      <h2><%= t "views.static_pages.home.greeting" %></h2>
+      <div class="row">
+        <aside class="col-md-4">
+          <section class="user_info">
+            <%= render "users/show" %>
+          </section>
+        </aside>
+      </div>
+    <% else %>
+      <div class="row">
+        <h2><%= t "views.static_pages.home.greeting" %></h2>
+        <%= link_to t("views.static_pages.home.signup_invite"),
+          new_user_registration_path, class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>
