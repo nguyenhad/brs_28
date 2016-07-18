@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :reviews
   resources :book_requests
   resources :user_books
+  resources :activities, only: [:create, :index]
+
   namespace :admin do
     resources :categories
     resources :users

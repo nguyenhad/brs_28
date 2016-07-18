@@ -11,6 +11,7 @@ gem "kaminari"
 gem "ransack"
 gem "figaro"
 gem "omniauth-facebook"
+gem "public_activity"
 
 gem "jquery-rails"
 gem "turbolinks"

@@ -1,0 +1,19 @@
+<div class="favorite_books">
+  <div class="title">
+   <h3><%= t "views.users.activities.title" %></3>
+  </div>
+  <% if @activities.blank? %>
+    <p><%= t "views.users.no_activities" %></p>
+  <% else %>
+    <div>
+      <% @activities.each do |activity| %>
+        <div class="activity">
+          <b><%= activity.owner.name if activity.owner %></b>
+          <%= activity_trackable_content activity %>
+          <em><%= time_ago_in_words activity.created_at %></em>
+          <%= t "views.users.activities.time_ago" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

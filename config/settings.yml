@@ -11,3 +11,7 @@ books:
   book_size_large: "300x400"
   default_book: "/assets/nhagiakim.jpg"
 status: 2
+activity:
+  trackable:
+    relationship:
+      content: "has new relationship"

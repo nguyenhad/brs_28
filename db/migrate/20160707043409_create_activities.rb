@@ -1,11 +1,18 @@
 class CreateActivities < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :activities do |t|
-      t.references :user, index: true, foreign_key: true
-      t.integer :activity_type
-      t.integer :target_id
+      t.belongs_to :trackable, polymorphic: :true
+      t.belongs_to :owner, polymorphic: :true
+      t.string  :key
+      t.text    :parameters
+      t.belongs_to :recipient, polymorphic: true
 
-      t.timestamps null: false
+      t.timestamps
+    end
+
+    add_index :activities, [:trackable_id, :trackable_type]
+    add_index :activities, [:owner_id, :owner_type]
+    add_index :activities, [:recipient_id, :recipient_type]
     end
   end
 end
