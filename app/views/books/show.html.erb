@@ -1,8 +1,10 @@
 <% provide :title, @book.title %>
-<%= social_share_button_tag @book.title %>
 <div class="row" id="show_book">
   <p id="info"></p>
   <div class="col-md-3">
+    <div class="form-control">
+      <%= social_share_button_tag @book.title %>
+    </div><br>
     <% if @book.picture.present? %>
       <%= image_tag(@book.picture, size: Settings.books.book_size_large,
         class: "img-thumbnail") %>

@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
         flash[:danger] = t "views.review.upadate_rate_fail"
         redirect_to books_path
       end
+      SendEmailWorkerReview.perform_async @new_review.id
       flash[:success] = t "views.review.added"
       redirect_to book_path(@new_review.book_id)
     else
@@ -24,7 +25,6 @@ class ReviewsController < ApplicationController
       redirect_to books_path
     end
   end
-
 
   def destroy
     book = @review.book
