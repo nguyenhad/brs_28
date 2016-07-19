@@ -1,6 +1,14 @@
 class CategoriesController < ApplicationController
   load_and_authorize_resource
 
+  def show
+    if @category.present?
+      @books = Book.in_category(params[:category_id])
+    else
+      flash[:alert] = "no book"
+    end
+  end
+
   def index
     @search = Category.search params[:q]
     @categories = @search.result.order(updated_at: :desc).page(params[:page])
