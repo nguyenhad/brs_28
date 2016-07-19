@@ -4,7 +4,6 @@
   <thead>
     <th class="number"><%= t "views.categories.index.category_number" %></th>
     <th class="name"><%= t "views.categories.index.category_name" %></th>
-    <th class="action"><%= t "views.categories.index.category_action" %></th>
   </thead>
   <%= search_form_for [:user, @search], url: categories_path,
     method: :get do |f| %>
@@ -18,7 +17,7 @@
     <% @categories.each_with_index do |category, index| %>
       <tr>
         <td><%= index + 1 %></td>
-        <td><%= link_to category.name, categories_path %></td>
+        <td><%= link_to category.name, books_path(category_id: category.id) %></td>
       </tr>
     <% end %>
   </tbody>
