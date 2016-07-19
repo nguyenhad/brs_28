@@ -2,7 +2,7 @@
   <hr>
   <h2><%= t "views.review.review_list" %></h2>
   <% reviews.each do |review| %>
-    <div class="col-md-6 review">
+    <div class="col-md-6 review" id="review_<%= review.id %>">
       <div class="col-md-3">
         <% if review.user.avatar.present? %>
           <%= image_tag(review.user.avatar, size: Settings.users.ava_size) %>
@@ -13,22 +13,33 @@
       </div>
       <div class="col-md-9">
         <h4>
-          <strong><%= link_to review.user.name, user_path(review.user) %>
+          <strong><%= link_to review.user.name, user_path(review.user.id) %>
           </strong><%= t "views.review.rate" %><%= review.rate %>
         </h4>
-        <p><%= review.content %><p>
-        <div class="comments"></div>
-        <% if current_user.present? %>
-          <% if current_user == review.user %>
-            <%= link_to t("views.review.edit"), "#" %> |
-            <%= link_to t("views.button.delete"), review_path(review),
-              method: :delete, data:{confirm: t("views.button.delete")} %>
-          <% end %>
-          <% all_comments = review.comments %>
-          <%= render "comments", comments: all_comments, review_id: review.id %>
-          <% @new_comment.review_id = review.id %>
-          <%= render "comments/comment_form", add_comment: @new_comment %>
-        <% end %>
+        <td>
+          <p id="review_content_<%= review.id %>"><%= review.content %></p>
+        </td>
+        <td>
+          <div class="edit-review" id="edit-form-<%= review.id %>">
+            <%= form_for review, html: {class: "edit-review-form"} do |f| %>
+              <%= f.number_field :rate, min: 0, max: 5, required: "true",
+                class: "form-control" %>
+              <%= f.text_field :content, class: "form-control" %>
+              <%= f.submit t("views.review.edit.submit_button"),
+                class: "btn btn-success btn-xs" %>
+            <% end %>
+          </div>
+        </td>
+        <tr>
+          <td>
+            <% if current_user == review.user %>
+              <%= link_to t("views.review.edits"), "#", value: "#{review.id}",
+                class: "edit-link", id: "edit-link#{review.id}" %> |
+              <%= link_to t("views.button.delete"), review_path(review),
+                method: :delete, data:{confirm: t("views.button.delete")} %>
+            <% end %>
+          </td>
+        </tr>
       </div>
     </div>
   <% end %>

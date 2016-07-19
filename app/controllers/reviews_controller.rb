@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  include ReviewHelper
   before_action :load_review, only: :destroy
   load_and_authorize_resource
 
@@ -26,10 +27,26 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @review.update_attributes review_params
+        data = json_data @review
+        format.html{redirect_to book_path(@review.book_id)}
+        format.json{render json: data}
+      else
+        format.html{redirect_to book_path(@reviews.book_id)}
+        flash.now[:error] = t "views.message.edit_fail";
+      end
+    end
+  end
+
   def destroy
     book = @review.book
     if @review.destroy
-      flash.now[:success] = t "vews.message.delete_success"
+      flash.now[:success] = t "views.message.delete_success"
       redirect_to book_path(book)
       if book.present?
         average = Review.average_rate(book.id).average :rate

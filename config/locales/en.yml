@@ -27,6 +27,8 @@ en:
       not_found_review: "fail to load review"
       delete_success: "Delete successfully"
       delete_fail: "Delete fail"
+      edit_reviews: "Edit successfully"
+      edit_fail: "Fail to edit book"
     button:
       delete: "Delete"
       login: "Sign in"
@@ -196,11 +198,16 @@ en:
       add_review: "Create Review"
       average_rate: "Average rate:"
       comment: "Comment"
-      edit: "Edit"
+      edits: "Edit"
       create: "Create new Review"
       delete: "Delete"
       rate: "rate "
       upadate_rate_fail: "update rate fail, can't add review"
+      edit:
+        title: "Edit review"
+        content: "Edit review"
+        submit_button: "Save"
+        time_format: "ago."
     comments:
       comment: "comment"
       time_format: "%d-%m-%Y %I:%M %p"
