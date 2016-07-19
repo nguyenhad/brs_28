@@ -7,18 +7,17 @@
         <td><%= f.text_field :name_cont, class: "form-control",
           placeholder: t("views.users.index.placeholder_name") %></td>
         <td>
-          <%= f.submit t("views.admin.user.search"), class: "btn btn-info" %>
+          <%= f.submit t("views.admin.user.search"), class: "btn" %>
         </td>
       </tr>
     </table>
   <% end %>
-  <table class="table table-striped">
+  <table class="table table-hover">
     <thead>
-      <tr>
+      <tr class="info">
         <th><%= t "users.name" %></th>
         <th><%= t "users.email" %></th>
         <th><%= t "users.avatar" %></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
