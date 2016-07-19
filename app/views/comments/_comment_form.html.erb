@@ -1,6 +1,6 @@
 <div class="row">
   <div class="comment">
-    <%= form_for add_comment, html: {id: "comment_form"} do |f| %>
+    <%= form_for add_comment, html: {class: "comment_form"} do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :review_id, value: add_comment.review_id %>
       <table class="table">

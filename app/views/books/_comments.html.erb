@@ -1,32 +1,39 @@
 <div class="row">
   <div id="comment_list_<%= review_id %>">
     <% comments.each do |comment| %>
-      <table class="table">
-        <tr>
-          <td rowspan="2">
-            <% if comment.user.avatar.present? %>
-              <%= image_tag comment.user.avatar,
-                size: Settings.users.comment_ava %>
-            <% else %>
-              <%= image_tag Settings.users.default_avatar,
-                size: Settings.users.comment_ava %>
-            <% end %>
-          </td>
-          <td>
-            <h4><%= link_to comment.user.name, user_path(comment.user.id) %></h4>
-          </td>
-          <td><%= comment.content %></td>
-        </tr>
-        <tr>
-          <td><%= comment.created_at.strftime("%d-%m-%Y %I:%M %p") %></td>
-          <td>
-            <% if current_user == comment.user %>
-              <%= link_to t("views.review.edit"), "#" %> |
-              <%= link_to t("views.review.delete"), "#" %>
-            <% end %>
-          </td>
-        </tr>
-      </table>
+      <div id="comment_<%= comment.id %>">
+        <table class="table">
+          <tr>
+            <td rowspan="2">
+              <% if comment.user.avatar.present? %>
+                <%= image_tag comment.user.avatar,
+                  size: Settings.users.comment_ava %>
+              <% else %>
+                <%= image_tag Settings.users.default_avatar,
+                  size: Settings.users.comment_ava %>
+              <% end %>
+            </td>
+            <td>
+              <h4><%= link_to comment.user.name, user_path(comment.user.id) %></h4>
+            </td>
+            <td><%= comment.content %></td>
+          </tr>
+          <tr>
+            <td>
+              <%= comment.created_at.strftime t("views.comments.time_format") %>
+            </td>
+            <td>
+              <% if current_user == comment.user %>
+                <%= link_to t("views.review.edit"), "#" %> |
+              <% end %>
+              <% if can? :manage, Comment %>
+                <%= link_to t("views.review.delete"), comment_path(comment),
+                  class: "delete_comment", value: "#{comment.id}" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
     <% end %>
   </div>
 </div>
