@@ -9,11 +9,12 @@ class BooksController < ApplicationController
   def show
     if current_user.present?
       @new_review = current_user.reviews.build
+      @new_comment = current_user.comments.build
       @user_book = UserBook.find_by user_id: current_user.id, book_id: @book.id
       @user_book = UserBook.new if @user_book == nil
     end
-      @reviews = @book.reviews.order(updated_at: :desc)
-        .page(params[:page]).per Settings.per_page
+    @reviews = @book.reviews.order(updated_at: :desc)
+      .page(params[:page]).per Settings.review_per_page
   end
 
   private

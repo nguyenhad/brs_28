@@ -1,5 +1,6 @@
 <div class="row" id="review_container">
- <h2><%= t "views.review.review_list" %></h2>
+  <hr>
+  <h2><%= t "views.review.review_list" %></h2>
   <% reviews.each do |review| %>
     <div class="col-md-6 review">
       <div class="col-md-3">
@@ -18,12 +19,15 @@
         <p><%= review.content %><p>
         <div class="comments"></div>
         <% if current_user.present? %>
-          <%= link_to t("views.review.comment"), "#" %>
           <% if current_user == review.user %>
-            <%= link_to t("views.review.edit"), "#" %>
+            <%= link_to t("views.review.edit"), "#" %> |
             <%= link_to t("views.button.delete"), review_path(review),
               method: :delete, data:{confirm: t("views.button.delete")} %>
           <% end %>
+          <% all_comments = review.comments %>
+          <%= render "comments", comments: all_comments, review_id: review.id %>
+          <% @new_comment.review_id = review.id %>
+          <%= render "comments/comment_form", add_comment: @new_comment %>
         <% end %>
       </div>
     </div>

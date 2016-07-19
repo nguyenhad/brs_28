@@ -191,6 +191,8 @@ en:
       delete: "Delete"
       rate: "rate "
       upadate_rate_fail: "update rate fail, can't add review"
+    comments:
+      comment: "comment"
     requests:
       new: "New request"
       requests: "Requests"

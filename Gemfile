@@ -23,6 +23,7 @@ gem "config"
 gem "cancancan", "~> 1.10"
 gem "whenever", require: false
 gem "social-share-button"
+gem "jquery-ui-rails"
 
 group :development, :test do
   gem "byebug"
