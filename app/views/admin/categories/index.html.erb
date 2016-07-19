@@ -1,39 +1,58 @@
 <% provide :title, t("views.admin.categories.index.title") %>
 <h1><%= t "views.admin.categories.index.title" %></h1>
+<div class="col-md-12">
+  <div>
+    <%= link_to t("views.admin.categories.index.add_category"),
+      new_admin_category_path, class: "btn" %>
+  </div><br>
+</div>
 <table class="table table-striped">
   <thead>
-    <th class="number"><%= t "views.admin.categories.index.category_number" %></th>
-    <th class="name"><%= t "views.admin.categories.index.category_name" %></th>
-    <th class="action"><%= t "views.admin.categories.index.category_action" %></th>
+    <tr class="info">
+      <th class="number">
+        <%= t "views.admin.categories.index.category_number" %>
+      </th>
+      <th class="name">
+        <%= t "views.admin.categories.index.category_name" %>
+      </th>
+      <th class="action">
+        <%= t "views.admin.categories.index.category_action" %>
+      </th>
+    </tr>
   </thead>
-  <%= search_form_for [:admin, @search], url: admin_categories_path,
-    method: :get do |f| %>
-    <div class="field">
-      <%= f.label :name_cont, t("views.admin.categories.index.search_form") %>
-      <%= f.search_field :name_cont %><br>
-      <%= f.submit t "views.admin.categories.index.search_button" %>
-    </div>
-  <% end %>
+  <div>
+    <%= search_form_for @search, class: "form-inline" do |f| %>
+      <div class="col-md-5">
+        <%= f.text_field :name_cont, class: "form-control",
+          placeholder: t("views.admin.categories.index.search_form") %>
+      </div>
+      <%= f.submit t("views.admin.user.search"), class: "btn" %>
+    <% end %>
+  </div><br>
   <tbody>
     <% @categories.each_with_index do |category, index| %>
       <tr>
         <td><%= index+1 %></td>
         <td><%= link_to category.name, admin_categories_path %></td>
         <td>
-          <%= link_to t("views.admin.categories.index.edit"),
-            edit_admin_category_path(category), class: "btn btn-info" %>
-          <%= link_to t("views.admin.categories.index.button_delete"),
-            admin_category_path(category),method: :delete,
-            class: "btn btn-danger" %>
-          <%= link_to t("views.admin.categories.index.add_book"),
-            new_admin_book_path(id: category.id), class: "btn btn-warning" %>
+          <%= link_to new_admin_book_path(category),
+            data: {toggle: "tooltip", placement: "top"},
+            title: t("views.button.add_book") do %>
+            <span class= "glyphicon glyphicon-plus" ></span>
+          <% end %>
+          <%= link_to edit_admin_category_path(category),
+            data: {toggle: "tooltip", placement: "top"},
+            title: t("views.button.edit") do %>
+            <span class= "glyphicon glyphicon-pencil" ></span>
+          <% end %>
+          <%= link_to admin_category_path(category), method: :delete,
+            data: {toggle: "tooltip", placement: "top"},
+            title: t("views.button.delete") do %>
+            <span class= "glyphicon glyphicon-trash" ></span>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<div>
-  <%= link_to t("views.admin.categories.index.add_category"),
-    new_admin_category_path, class: "btn btn-primary" %>
-</div>
 <%= paginate @categories %>

@@ -1,31 +1,28 @@
 <%= provide :title,t("views.admin.user.show_user") %>
-<div class="row">
-  <h1><%= t "views.admin.user.show_user" %></h1>
-  <div class="col-md-10">
-    <%= search_form_for [:admin, @search] do |f| %>
-      <table class="table">
-        <tr>
-          <td><%= f.text_field :name_cont, class: "form-control",
-            placeholder: t("views.users.index.placeholder_name") %></td>
-          <td>
-            <%= f.submit t("views.admin.user.search"),
-              class: "btn btn-info" %>
-          </td>
-        </tr>
-      </table>
-    <% end %>
-    <table class="table table-hover">
-      <thead>
-        <tr class="info">
-          <th><%= t "admin.users.index" %></th>
-          <th><%= t "admin.users.name" %></th>
-          <th><%= t "admin.users.email" %></th>
-          <th><%= t "admin.users.avatar" %></th>
-          <th><%= t "admin.users.action" %></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
+<h1><%= t "views.admin.user.show_user" %></h1>
+<ul class="users">
+  <%= search_form_for [:admin, @search] do |f| %>
+    <table class="table">
+      <tr>
+        <td><%= f.text_field :name_cont, class: "form-control",
+          placeholder: t("views.users.index.placeholder_name") %></td>
+        <td>
+          <%= f.submit t("views.admin.user.search"), class: "btn" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+  <table class="table table-hover">
+    <thead>
+      <tr class="info">
+        <th><%= t "admin.users.index" %></th>
+        <th><%= t "admin.users.name" %></th>
+        <th><%= t "admin.users.email" %></th>
+        <th><%= t "admin.users.avatar" %></th>
+        <th><%= t "admin.users.action" %></th>
+      </tr>
+    </thead>
+    <tbody>
       <% @users.each_with_index do |user, index| %>
         <tr>
           <td><%= index + 1 %></td>
@@ -41,17 +38,18 @@
           </td>
           <td>
             <% if can?(:delete, @user) && !user.admin? %>
-              <%= link_to t("views.button.delete"), admin_user_path(user),
-                method: :delete,
-                data:{confirm: t("views.button.delete")},
-                class: "btn btn-danger btn-sm" %>
+              <%= link_to admin_user_path(user),
+                method: :delete, data:{confirm: t("views.button.delete")},
+                data: {toggle: "tooltip", placement: "top"},
+                title: t("views.button.delete") do %>
+                <span class= "glyphicon glyphicon-trash" ></span>
+              <% end %>
             <% end %>
           </td>
         </tr>
       <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+    </tbody>
+  </table>
+</ul>
 <%= paginate @users %>
 <%= page_entries_info @users %>

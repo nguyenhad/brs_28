@@ -15,3 +15,7 @@
 //= require bootstrap
 //= require_tree .
 //= require social-share-button
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip()
+})

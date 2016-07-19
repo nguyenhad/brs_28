@@ -33,6 +33,8 @@ en:
       delete: "Delete"
       login: "Sign in"
       logout: "Logout"
+      edit: "Edit"
+      add_book: "Add new book"
     devise:
       login: "Login"
       signup: "Sign up"
