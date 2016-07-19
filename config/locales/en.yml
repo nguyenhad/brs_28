@@ -67,6 +67,13 @@ en:
       books:
         list_books: "List books"
         request: "Request buy books"
+    mailer:
+      create_review: "Review created"
+      new_review: "New review"
+      review_noti: "Your review was created!"
+      create_comment: "Comment created"
+      new_comment: "New comment"
+      comment_noti: "Your comment was created"
     admin:
       user:
         index: "index"
@@ -132,6 +139,7 @@ en:
         accepted: "Request accepted"
         hello: "Hello"
         noti: "Your request buy book was accepted"
+
       requests:
         success: "Accepted successfully!"
         fail: "Accepted failed!"

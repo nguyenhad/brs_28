@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     respond_to do |format|
       if @comment.save
+        SendEmailWorkerComment.perform_async @comment.id
         data = json_data @comment
         format.html{redirect_to book_path(@comment.review.book_id)}
         format.json{render json: data}

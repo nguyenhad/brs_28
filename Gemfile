@@ -24,6 +24,7 @@ gem "cancancan", "~> 1.10"
 gem "whenever", require: false
 gem "social-share-button"
 gem "jquery-ui-rails"
+gem "sidekiq"
 
 group :development, :test do
   gem "byebug"
