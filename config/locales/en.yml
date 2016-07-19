@@ -163,6 +163,8 @@ en:
       profile: "My profile"
       index:
         placeholder_name: "Name contain..."
+      like: "Like"
+      unlike: "Unlike"
       activities:
         title: "List activities"
         no_activity: "No activities"

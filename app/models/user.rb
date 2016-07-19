@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
     following.include? other_user
   end
 
+  def liked? activity
+    likes.find_by activity_id: activity.id
+  end
+
   class << self
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

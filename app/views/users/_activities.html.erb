@@ -1,4 +1,4 @@
-<div class="favorite_books">
+<div class="activities">
   <div class="title">
    <h3><%= t "views.users.activities.title" %></3>
   </div>
@@ -6,14 +6,27 @@
     <p><%= t "views.users.no_activities" %></p>
   <% else %>
     <div>
-      <% @activities.each do |activity| %>
-        <div class="activity">
-          <b><%= activity.owner.name if activity.owner %></b>
-          <%= activity_trackable_content activity %>
-          <em><%= time_ago_in_words activity.created_at %></em>
-          <%= t "views.users.activities.time_ago" %>
-        </div>
-      <% end %>
+      <table class="table">
+        <% @activities.each do |activity| %>
+          <tr>
+            <td>
+              <div class="activity" id="activity">
+                <b><%= activity.owner.name if activity.owner %></b>
+                <%= activity_trackable_content activity %>
+                <em><%= time_ago_in_words activity.created_at %></em>
+                <%= t "views.users.activities.time_ago" %>
+              </div>
+            </td>
+            <td>
+              <%= div_for activity do %>
+                <%= render "like", activity: activity %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   <% end %>
+<%= paginate @activities %>
 </div>
+
