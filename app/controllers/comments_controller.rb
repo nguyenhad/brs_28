@@ -15,6 +15,13 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+    respond_to do |format|
+      format.html{redirect_to book_path @comment.review.book_id}
+    end
+  end
+
   private
   def comment_params
     params.require(:comment).permit :user_id, :review_id, :content

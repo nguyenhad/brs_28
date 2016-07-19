@@ -195,6 +195,7 @@ en:
       upadate_rate_fail: "update rate fail, can't add review"
     comments:
       comment: "comment"
+      time_format: "%d-%m-%Y %I:%M %p"
     requests:
       new: "New request"
       requests: "Requests"
