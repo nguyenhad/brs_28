@@ -6,7 +6,7 @@
         placeholder: t("views.admin.books.index.placeholder.title") %>
       <%= f.text_field :author_cont, class: "form-control",
         placeholder: t("views.admin.books.index.placeholder.author") %>
-      <%= f.submit t("views.admin.user.search"), class: "btn" %>
+      <%= f.submit t("views.admin.user.search"), class: "btn btn-primary" %>
     <% end %>
   </div><br>
   <table class="table table-hover">
@@ -20,7 +20,7 @@
         <th><%= t "views.admin.books.index.publish_date" %></th>
         <th><%= t "views.admin.books.index.page" %></th>
         <th><%= t "views.admin.books.index.rate" %></th>
-        <th></th>
+        <th><%= t "views.admin.categories.index.category_action" %></th>
       </tr>
     </thead>
     <tbody>

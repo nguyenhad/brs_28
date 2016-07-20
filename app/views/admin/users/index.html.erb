@@ -7,7 +7,7 @@
         <td><%= f.text_field :name_cont, class: "form-control",
           placeholder: t("views.users.index.placeholder_name") %></td>
         <td>
-          <%= f.submit t("views.admin.user.search"), class: "btn" %>
+          <%= f.submit t("views.admin.user.search"), class: "btn btn-primary" %>
         </td>
       </tr>
     </table>
@@ -38,9 +38,9 @@
           </td>
           <td>
             <% if can?(:delete, @user) && !user.admin? %>
-              <%= link_to admin_user_path(user),
-                method: :delete, data:{confirm: t("views.button.delete")},
-                data: {toggle: "tooltip", placement: "top"},
+              <%= link_to admin_user_path(user), method: :delete,
+                data: {confirm: t("views.admin.message.confirm"),
+                toggle: "tooltip", placement: "top"},
                 title: t("views.button.delete") do %>
                 <span class= "glyphicon glyphicon-trash" ></span>
               <% end %>

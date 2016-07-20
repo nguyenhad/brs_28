@@ -17,7 +17,7 @@
           <% end %>
           <%= link_to reading_book.title, reading_book %>
           <%= t "views.users.start_read" %>
-          <%= reading_book.updated_at %>
+          <%= reading_book.updated_at.strftime t("views.comments.time_format") %>
           <br>
         </li>
       <% end %>

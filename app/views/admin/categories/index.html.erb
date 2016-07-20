@@ -3,7 +3,7 @@
 <div class="col-md-12">
   <div>
     <%= link_to t("views.admin.categories.index.add_category"),
-      new_admin_category_path, class: "btn" %>
+      new_admin_category_path, class: "btn btn-primary" %>
   </div><br>
 </div>
 <table class="table table-striped">
@@ -26,7 +26,7 @@
         <%= f.text_field :name_cont, class: "form-control",
           placeholder: t("views.admin.categories.index.search_form") %>
       </div>
-      <%= f.submit t("views.admin.user.search"), class: "btn" %>
+      <%= f.submit t("views.admin.user.search"), class: "btn btn-primary" %>
     <% end %>
   </div><br>
   <tbody>
@@ -46,7 +46,8 @@
             <span class= "glyphicon glyphicon-pencil" ></span>
           <% end %>
           <%= link_to admin_category_path(category), method: :delete,
-            data: {toggle: "tooltip", placement: "top"},
+            data: {confirm: t("views.admin.message.confirm"),
+            toggle: "tooltip", placement: "top"},
             title: t("views.button.delete") do %>
             <span class= "glyphicon glyphicon-trash" ></span>
           <% end %>
