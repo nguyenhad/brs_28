@@ -17,3 +17,7 @@ activity:
   trackable:
     relationship:
       content: "has new relationship"
+    comment:
+      content: "commented on a review"
+    review:
+      content: "review a book"

@@ -11,7 +11,8 @@
           <tr>
             <td>
               <div class="activity" id="activity">
-                <b><%= activity.owner.name if activity.owner %></b>
+                <%= link_to activity.owner.name,
+                  user_path(@user) if activity.owner %>
                 <%= activity_trackable_content activity %>
                 <em><%= time_ago_in_words activity.created_at %></em>
                 <%= t "views.users.activities.time_ago" %>

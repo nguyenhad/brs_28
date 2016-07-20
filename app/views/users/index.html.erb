@@ -31,9 +31,9 @@
           </td>
           <td>
             <% if user.avatar.present? %>
-              <%= image_tag(user.avatar, size: Settings.users.ava_size) %>
+              <%= link_to image_tag(user.avatar, size: Settings.users.ava_size), user %>
             <% else %>
-              <%= image_tag(Settings.users.default_avatar,
+              <%= link_to image_tag(Settings.users.default_avatar,
                 size: Settings.users.ava_size) %>
             <% end %>
           </td>

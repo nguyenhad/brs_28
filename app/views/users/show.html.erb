@@ -17,12 +17,12 @@
     <% unless current_user == @user %>
       <%= render "follow_form" %>
     <% end %>
+    <div>
+      <%= render "activities" %>
+    </div>
   </aside>
   <div class="col-md-8">
     <%= render "favorite_book" %>
     <%= render "reading_history" %>
-    <div class="col-md-8">
-      <%= render "activities" %>
-    </div>
   </div>
 </div>

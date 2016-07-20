@@ -13,6 +13,15 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def show
+    if @category.present?
+      @books = Book.in_category(params[:category_id])
+    else
+      flash[:alert] =
+        "controllers.admin.categories.flash.alert.show_book"
+    end
+  end
+
   def new
     @category = Category.new
   end
@@ -57,6 +66,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.books.any?
       flash[:danger] =
         t "controllers.admin.categories.flash.danger.delete_category"
+      redirect_to admin_categories_path
     end
   end
 end

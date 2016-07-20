@@ -5,6 +5,18 @@
     <%= link_to t("views.admin.categories.index.add_category"),
       new_admin_category_path, class: "btn btn-primary" %>
   </div><br>
+<div class="categories">
+  <%= search_form_for [:admin, @search], url: admin_categories_path,
+    method: :get do |f| %>
+    <table class="table">
+      <tr>
+        <td><%= f.search_field :name_cont, class: "form-control",
+          placeholder: t("views.admin.categories.index.placeholder_name") %></td>
+        <td><%= f.submit t("views.admin.categories.index.search_button"),
+          class: "btn btn-info" %></td>
+      </tr>
+    </table>
+  <% end %>
 </div>
 <table class="table table-striped">
   <thead>
@@ -20,22 +32,13 @@
       </th>
     </tr>
   </thead>
-  <div>
-    <%= search_form_for @search, class: "form-inline" do |f| %>
-      <div class="col-md-5">
-        <%= f.text_field :name_cont, class: "form-control",
-          placeholder: t("views.admin.categories.index.search_form") %>
-      </div>
-      <%= f.submit t("views.admin.user.search"), class: "btn btn-primary" %>
-    <% end %>
-  </div><br>
   <tbody>
     <% @categories.each_with_index do |category, index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= link_to category.name, admin_categories_path %></td>
+        <td><%= link_to category.name, admin_books_path(category_id: category.id) %></td>
         <td>
-          <%= link_to new_admin_book_path(category),
+          <%= link_to new_admin_book_path(id: category.id),
             data: {toggle: "tooltip", placement: "top"},
             title: t("views.button.add_book") do %>
             <span class= "glyphicon glyphicon-plus" ></span>

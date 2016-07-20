@@ -27,7 +27,8 @@ class Admin::BooksController < ApplicationController
   end
 
   def index
-    @search = Book.ransack params[:q]
+    @books = Book.in_category params[:category_id]
+    @search = @books.ransack params[:q]
     @books = @search.result.order(updated_at: :desc).page(params[:page])
       .per Settings.per_page
   end

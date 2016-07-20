@@ -81,7 +81,7 @@ en:
     admin:
       user:
         index: "index"
-        show_user: "Show User"
+        show_user: "Manage Users"
         confirm: "Are you sure to delete this user?"
         delete_success: "User has been deleted"
         delete_fail: "Fail to delete user"
@@ -91,7 +91,7 @@ en:
         search_by_name: "Search by name"
       categories:
         index:
-          title: "All categories"
+          title: "Manage Categories"
           edit: "Edit"
           add_category: "Add new category"
           category_number: "Number"
@@ -101,6 +101,7 @@ en:
           search_form: "Category's name: "
           search_button: "Search"
           add_book: "Add new book"
+          placeholder_name: "Category's name contain..."
         new:
           title: "New category"
           content: "Add a new category"
@@ -123,7 +124,7 @@ en:
           edit: "Edit"
           delete: "Delete"
           create_book: "Create book"
-          all_books: "All books"
+          all_books: "Manage Books"
           placeholder:
             title: "Title contain..."
             author: "Author contain..."
@@ -175,6 +176,7 @@ en:
       profile: "My profile"
       index:
         placeholder_name: "Name contain..."
+        placeholder_email: "Email contain..."
       like: "Like"
       unlike: "Unlike"
       activities:
@@ -267,6 +269,7 @@ en:
             edit_fail: "Edit book was fail!"
           alert:
             search_category: "Categories not found"
+            show_book: "No book exxist"
         index:
           title: "All categories"
           users: "Users"
@@ -285,3 +288,5 @@ en:
       flash:
         alert:
           search_categories: "Categories not found"
+  model:
+    book_page: "number page cannot less 20"
