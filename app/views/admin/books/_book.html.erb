@@ -12,7 +12,7 @@
     <td><%= book.title %></td>
     <td><%= book.author %></td>
     <td><%= book.description %></td>
-    <td><%= book.publish_date %></td>
+    <td><%= book.publish_date.strftime t("views.comments.date_format") %></td>
     <td><%= book.pages %></td>
     <td><%= book.average_rate %></td>
     <td>
@@ -20,9 +20,10 @@
         data: {toggle: "tooltip", placement: "top"}, title: t("views.button.edit") do %>
         <span class= "glyphicon glyphicon-pencil" ></span>
       <% end %>
-      <%= link_to admin_book_path(book),
-        method: :delete, data: {confirm: t("views.admin.message.confirm")},
-        data: {toggle: "tooltip", placement: "top"}, title: t("views.button.delete") do %>
+      <%= link_to admin_book_path(book), method: :delete,
+        data: {confirm: t("views.admin.message.confirm"),
+        toggle: "tooltip", placement: "top"},
+        title: t("views.button.delete") do %>
         <span class= "glyphicon glyphicon-trash" ></span>
       <% end %>
     </td>

@@ -213,6 +213,7 @@ en:
     comments:
       comment: "comment"
       time_format: "%d-%m-%Y %I:%M %p"
+      date_format: "%d-%m-%Y"
     requests:
       new: "New request"
       requests: "Requests"

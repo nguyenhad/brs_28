@@ -19,19 +19,19 @@
       <div class="title">
         <h2><b><%= @book.title %></b></h2>
       </div>
-      <h4><%= t "views.books.author" %></h4>
+      <h4><b><%= t "views.books.author" %></b></h4>
       <p><%= @book.author %></p>
-      <h4><%= t "views.books.date" %></h4>
-      <p><%= @book.publish_date %></p>
-      <h4><%= t "views.books.pages" %></h4>
+      <h4><b><%= t "views.books.date" %></b></h4>
+      <p><%= @book.publish_date.strftime t("views.comments.date_format") %></p>
+      <h4><b><%= t "views.books.pages" %></b></h4>
       <p><%= @book.pages %></p>
-      <h4><%= t "views.books.type" %></h4>
+      <h4><b><%= t "views.books.type" %></b></h4>
       <p><%= @book.category.name %></p>
-      <h4><%= t "views.books.description" %></h4>
+      <h4><b><%= t "views.books.description" %></b></h4>
       <p><%= @book.description %></p>
-      <h4><%= t "views.books.isbn" %></h4>
+      <h4><b><%= t "views.books.isbn" %></b></h4>
       <p><%= @book.isbn %></p>
-      <h4><%= t "views.review.average_rate" %></h4>
+      <h4><b><%= t "views.review.average_rate" %></b></h4>
       <p><%= @book.average_rate %></p>
     </div>
   </div>
